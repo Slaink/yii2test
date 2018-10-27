@@ -36,7 +36,9 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "yii\\composer\\Installer::postInstall"
+            "yii\\composer\\Installer::postInstall",
+            "yii migrate --migrationPath=@yii/rbac/migrations",
+            "yii rbac/init"
         ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",
