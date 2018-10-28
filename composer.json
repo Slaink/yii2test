@@ -17,7 +17,12 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "kartik-v/yii2-grid": "dev-master",
+        "kartik-v/yii2-widgets": "dev-master",
+        "kartik-v/yii2-checkbox-x": "dev-master",
+        "yiisoft/yii2-imagine": "^2.1",
+        "kartik-v/yii2-editable": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -38,7 +43,8 @@
         "post-install-cmd": [
             "yii\\composer\\Installer::postInstall",
             "yii migrate --migrationPath=@yii/rbac/migrations",
-            "yii rbac/init"
+            "yii rbac/init",
+            "yii migrate"
         ],
         "post-create-project-cmd": [
             "yii\\composer\\Installer::postCreateProject",

@@ -53,14 +53,37 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '/' => 'driver/index',
+                '/update/<id:\d+>' => 'driver/update',
+                '/delete/<id:\d+>' => 'driver/delete',
                 '<controller:[\w-]+>/<id:\d+>' => '<controller>',
                 '<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:[\w-]+>/<action:[\w-]+>' => '<controller>/<action>',
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                    ],
+                ],
+            ],
+        ],
 
     ],
     'params' => $params,
+    'modules' => [
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module',
+            'i18n' => [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@kvgrid/messages',
+                'forceTranslation' => true
+            ],
+        ]
+    ],
 ];
 
 if (YII_ENV_DEV) {
