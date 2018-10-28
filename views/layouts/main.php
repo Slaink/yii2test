@@ -38,8 +38,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => Yii::t('app', 'Drivers'), 'url' => ['/driver/index']],
-            ['label' => Yii::t('app', 'Buses'), 'url' => ['/bus/index']],
+            ['label' => Yii::t('app', 'Drivers'), 'url' => ['/driver/index'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => Yii::t('app', 'Buses'), 'url' => ['/bus/index'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -68,7 +68,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Лисица Михаил <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
